@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Event</title>
+    </head>
+    <body>
+        
+        <h1>Event</h1>
+        
+        <h2>Meet everyone participating!</h2>
+
+        <ul>
+            <li th:each="participant : ${participants}">
+                <span th:utext="${participant.getName()}"></span>
+            </li>
+            
+        </ul>
+        
+        <h2>Topics wished for discuss</h2>
+        
+        <ul>
+            <li th:each="topic : ${topics}">
+                <span th:utext="${topic.getName()}"></span>
+            </li>
+            
+        </ul>
+        
+        <form action="#" th:action="@{/event}" method="POST">
+            <p><label for="topic">Topic</label>: <input type="text" name="topic" id="topic"/></p>
+            <p><input type="submit" value="Wish!" /></p>
+        </form>
+        
+        <a href="/redirect/google.com">Use Google for topic ideas!</a>
+        
+    </body>
+</html>
